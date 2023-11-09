@@ -5,11 +5,11 @@
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace Leadvertex\Plugin\Components\Form;
+namespace SalesRender\Plugin\Components\Form;
 
 
 use JsonSerializable;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
 use TypeError;
 
 class FieldGroup implements JsonSerializable

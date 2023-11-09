@@ -5,14 +5,14 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form\FieldDefinitions;
+namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
-use Leadvertex\Plugin\Components\Form\Components\Validator;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Limit;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\StaticValues;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\ValuesListInterface;
-use Leadvertex\Plugin\Components\Form\FieldDefinitionTestCase;
-use Leadvertex\Plugin\Components\Form\FormData;
+use SalesRender\Plugin\Components\Form\Components\Validator;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Limit;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\StaticValues;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\ValuesListInterface;
+use SalesRender\Plugin\Components\Form\FieldDefinitionTestCase;
+use SalesRender\Plugin\Components\Form\FormData;
 
 class ListOfEnumDefinitionTest extends FieldDefinitionTestCase
 {

@@ -5,11 +5,11 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form\FieldDefinitions;
+namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
-use Leadvertex\Plugin\Components\Form\Components\Validator;
-use Leadvertex\Plugin\Components\Form\FieldDefinitionTestCase;
-use Leadvertex\Plugin\Components\Form\FormData;
+use SalesRender\Plugin\Components\Form\Components\Validator;
+use SalesRender\Plugin\Components\Form\FieldDefinitionTestCase;
+use SalesRender\Plugin\Components\Form\FormData;
 
 class IFrameDefinitionTest extends FieldDefinitionTestCase
 {

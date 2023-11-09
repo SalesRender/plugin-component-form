@@ -5,7 +5,7 @@
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace Leadvertex\Plugin\Components\Form\FieldDefinitions;
+namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
 
 class PasswordDefinition extends FieldDefinition

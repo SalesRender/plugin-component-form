@@ -5,7 +5,7 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form\Exceptions;
+namespace SalesRender\Plugin\Components\Form\Exceptions;
 
 
 use Exception;

@@ -5,12 +5,12 @@
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace Leadvertex\Plugin\Components\Form\FieldDefinitions;
+namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
 
 use JsonSerializable;
-use Leadvertex\Plugin\Components\Form\Components\ValidatorInterface;
-use Leadvertex\Plugin\Components\Form\FormData;
+use SalesRender\Plugin\Components\Form\Components\ValidatorInterface;
+use SalesRender\Plugin\Components\Form\FormData;
 
 abstract class FieldDefinition implements JsonSerializable
 {

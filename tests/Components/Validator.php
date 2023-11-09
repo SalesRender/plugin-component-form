@@ -5,11 +5,11 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form\Components;
+namespace SalesRender\Plugin\Components\Form\Components;
 
 
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
-use Leadvertex\Plugin\Components\Form\FormData;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
+use SalesRender\Plugin\Components\Form\FormData;
 
 class Validator implements ValidatorInterface
 {

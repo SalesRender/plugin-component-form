@@ -5,11 +5,11 @@
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace Leadvertex\Plugin\Components\Form\FieldDefinitions;
+namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
 
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Limit;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\ValuesListInterface;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Limit;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\ValuesListInterface;
 
 class ListOfEnumDefinition extends FieldDefinition
 {

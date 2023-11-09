@@ -1,12 +1,12 @@
 <?php
 
-namespace Leadvertex\Plugin\Components\Form;
+namespace SalesRender\Plugin\Components\Form;
 
 
 use Exception;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\IntegerDefinition;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\StringDefinition;
 use PHPUnit\Framework\TestCase;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\IntegerDefinition;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\StringDefinition;
 use TypeError;
 
 class FormTest extends TestCase

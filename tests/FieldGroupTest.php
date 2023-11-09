@@ -5,12 +5,12 @@
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace Leadvertex\Plugin\Components\Form;
+namespace SalesRender\Plugin\Components\Form;
 
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\BooleanDefinition;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\IntegerDefinition;
 use PHPUnit\Framework\TestCase;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\BooleanDefinition;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\IntegerDefinition;
 use TypeError;
 
 class FieldGroupTest extends TestCase

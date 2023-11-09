@@ -5,7 +5,7 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values;
+namespace SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values;
 
 
 use InvalidArgumentException;

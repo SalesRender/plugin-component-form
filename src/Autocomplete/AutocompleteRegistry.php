@@ -5,10 +5,10 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form\Autocomplete;
+namespace SalesRender\Plugin\Components\Form\Autocomplete;
 
 
-use Leadvertex\Plugin\Components\Form\Exceptions\AutocompleteRegistryException;
+use SalesRender\Plugin\Components\Form\Exceptions\AutocompleteRegistryException;
 
 final class AutocompleteRegistry
 {

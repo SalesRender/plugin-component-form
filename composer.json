@@ -1,18 +1,18 @@
 {
-  "name": "leadvertex/plugin-component-form",
-  "description": "LeadVertex plugins form component",
+  "name": "salesrender/plugin-component-form",
+  "description": "SalesRender plugins form component",
   "type": "library",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
       "name": "Timur Kasumov aka XAKEPEHOK",
-      "email": "support@leadvertex.com"
+      "email": "support@salesrender.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Leadvertex\\Plugin\\Components\\Form\\": "src/"
+      "SalesRender\\Plugin\\Components\\Form\\": "src/"
     }
   },
   "require": {
@@ -22,7 +22,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Leadvertex\\Plugin\\Components\\Form\\": "tests/"
+      "SalesRender\\Plugin\\Components\\Form\\": "tests/"
     }
   },
   "require-dev": {

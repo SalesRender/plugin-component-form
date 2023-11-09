@@ -5,12 +5,12 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Components\Form;
+namespace SalesRender\Plugin\Components\Form;
 
 
-use Leadvertex\Plugin\Components\Form\Components\Validator;
-use Leadvertex\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
 use PHPUnit\Framework\TestCase;
+use SalesRender\Plugin\Components\Form\Components\Validator;
+use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
 
 abstract class FieldDefinitionTestCase extends TestCase
 {

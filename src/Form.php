@@ -31,8 +31,9 @@ class Form implements JsonSerializable
      * @param string|null $description
      * @param FieldGroup[] $fieldGroups
      * @param string $button
+     * @param array $context
      */
-    public function __construct(string $title, ?string $description, array $fieldGroups, string $button)
+    public function __construct(string $title, ?string $description, array $fieldGroups, string $button, array $context = [])
     {
         $this->title = $title;
         $this->description = $description;
@@ -45,6 +46,7 @@ class Form implements JsonSerializable
         }
 
         $this->button = $button;
+        $this->context = $context;
     }
 
     public function getTitle(): string

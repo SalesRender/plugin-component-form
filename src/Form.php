@@ -23,6 +23,8 @@ class Form implements JsonSerializable
 
     private string $button;
 
+    private array $context = [];
+
     /**
      * Form constructor.
      * @param string $title
@@ -133,6 +135,16 @@ class Form implements JsonSerializable
             }
         }
         return $errors;
+    }
+
+    public function getContext(): array
+    {
+        return $this->context;
+    }
+
+    public function setContext(array $context): void
+    {
+        $this->context = $context;
     }
 
     public function jsonSerialize()

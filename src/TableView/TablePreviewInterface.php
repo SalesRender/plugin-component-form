@@ -10,6 +10,6 @@ namespace SalesRender\Plugin\Components\Form\TableView;
 interface TablePreviewInterface
 {
 
-    public function render(array $dependencies): array;
+    public function render(array $dependencies, array $context): array;
 
 }

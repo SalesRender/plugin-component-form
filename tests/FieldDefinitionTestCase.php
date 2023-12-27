@@ -69,6 +69,16 @@ abstract class FieldDefinitionTestCase extends TestCase
         $this->assertNull($this->definitionNull->getDefault());
     }
 
+    public function testGetContext()
+    {
+        $this->assertEquals('My context value', $this->definition->getContext());
+    }
+
+    public function testGetNullContext()
+    {
+        $this->assertNull($this->definitionNull->getContext());
+    }
+
     public function testGetDefinition()
     {
         $this->assertEquals($this->getDefinitionString(), $this->definition->getDefinition());
@@ -82,6 +92,7 @@ abstract class FieldDefinitionTestCase extends TestCase
                 'description' => 'My description',
                 'definition' => $this->getDefinitionString(),
                 'default' => 'My default value',
+                'context' => 'My context value',
             ]),
             json_encode($this->definition)
         );
@@ -111,7 +122,7 @@ abstract class FieldDefinitionTestCase extends TestCase
             return [];
         };
 
-        $this->definition = new $class('My field', 'My description', $validator, 'My default value');
+        $this->definition = new $class('My field', 'My description', $validator, 'My default value', 'My context value');
         $this->definitionNull = new $class('My field', null, $validator, null);
         $this->definitionValidator = new $class('My field', null, new Validator($validator), null);
     }

@@ -15,6 +15,8 @@ class FormTest extends TestCase
     /** @var FieldGroup[] */
     private array $fieldGroups;
 
+    private array $context = [];
+
     private Form $form;
 
     private Form $formNullData;
@@ -75,11 +77,14 @@ class FormTest extends TestCase
             ),
         ];
 
+        $this->context = ['hello' => 'world'];
+
         $this->form = new Form(
             'Form_filled',
             'Form_filled description',
             $this->fieldGroups,
-            'Save'
+            'Save',
+            $this->context,
         );
 
         $this->formNullData = new Form(
@@ -256,6 +261,21 @@ class FormTest extends TestCase
         ], $this->form->getErrors($data));
     }
 
+    public function testGetContext()
+    {
+        $this->assertSame($this->context, $this->form->getContext());
+        $this->assertSame([], $this->formNullData->getContext());
+    }
+
+    public function testSetContext()
+    {
+        $context = ['new' => 'context'];
+        $this->form->setContext($context);
+        $this->formNullData->setContext($context);
+
+        $this->assertSame($context, $this->form->getContext());
+        $this->assertSame($context, $this->formNullData->getContext());
+    }
 
     public function testJsonSerialize()
     {

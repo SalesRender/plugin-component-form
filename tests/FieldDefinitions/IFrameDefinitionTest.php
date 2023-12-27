@@ -36,7 +36,7 @@ class IFrameDefinitionTest extends FieldDefinitionTestCase
             return [];
         };
 
-        $this->definition = new $class('My field', 'My description', $validator, $this->iframe, 'My default value');
+        $this->definition = new $class('My field', 'My description', $validator, $this->iframe, 'My default value', 'My context value');
         $this->definitionNull = new $class('My field', null, $validator, $this->iframe, null);
         $this->definitionValidator = new $class('My field', null, new Validator($validator), $this->iframe, null);
     }
@@ -64,6 +64,7 @@ class IFrameDefinitionTest extends FieldDefinitionTestCase
                 'description' => 'My description',
                 'definition' => $this->getDefinitionString(),
                 'default' => 'My default value',
+                'context' => 'My context value',
                 'iframe' => $this->iframe,
             ]),
             json_encode($this->definition)

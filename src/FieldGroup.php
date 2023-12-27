@@ -9,7 +9,9 @@ namespace SalesRender\Plugin\Components\Form;
 
 
 use JsonSerializable;
+use SalesRender\Plugin\Components\Form\Exceptions\InvalidDependencyException;
 use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
+use SalesRender\Plugin\Components\Form\TableView\TablePreviewInterface;
 use TypeError;
 
 class FieldGroup implements JsonSerializable
@@ -22,13 +24,21 @@ class FieldGroup implements JsonSerializable
     /** @var FieldDefinition[] */
     protected array $fields = [];
 
+    /** @var array[] */
+    protected array $dependencies = [];
+
+    private array $context = [];
+
     /**
      * FieldsGroup constructor.
      * @param string $title
      * @param string|null $description
-     * @param FieldDefinition[] $fields
+     * @param FieldDefinition[]|TablePreviewInterface[] $fields
+     * @param array $dependencies
+     * @param array $context
+     * @throws InvalidDependencyException
      */
-    public function __construct(string $title, ?string $description, array $fields)
+    public function __construct(string $title, ?string $description, array $fields, array $dependencies = [], array $context = [])
     {
         $this->title = $title;
         $this->description = $description;
@@ -39,6 +49,21 @@ class FieldGroup implements JsonSerializable
             }
             $this->fields[$name] = $fieldsGroup;
         }
+
+        foreach ($dependencies as $field => $dependsFrom) {
+            if (!isset($this->fields[$field])) {
+                throw new InvalidDependencyException('Invalid field name "' . $field . '" in dependency key', 100);
+            }
+
+            foreach ($dependsFrom as $depFromField) {
+                if (!isset($this->fields[$depFromField])) {
+                    throw new InvalidDependencyException('Invalid dependency "' . $depFromField . '" for "' . $field . '"', 200);
+                }
+            }
+        }
+
+        $this->dependencies = $dependencies;
+        $this->context = $context;
     }
 
     public function getTitle(): string
@@ -56,12 +81,28 @@ class FieldGroup implements JsonSerializable
         return $this->fields;
     }
 
+    public function getDependencies(): array
+    {
+        return $this->dependencies;
+    }
+
+    public function getContext(): array
+    {
+        return $this->context;
+    }
+
+    public function setContext(array $context): void
+    {
+        $this->context = $context;
+    }
+
     public function jsonSerialize()
     {
         return [
             'title' => $this->getTitle(),
             'description' => $this->getDescription(),
             'fields' => $this->getFields(),
+            'dependencies' => $this->getDependencies(),
         ];
     }
 }

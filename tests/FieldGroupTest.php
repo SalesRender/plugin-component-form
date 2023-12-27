@@ -8,6 +8,7 @@
 namespace SalesRender\Plugin\Components\Form;
 
 use PHPUnit\Framework\TestCase;
+use SalesRender\Plugin\Components\Form\Exceptions\InvalidDependencyException;
 use SalesRender\Plugin\Components\Form\FieldDefinitions\BooleanDefinition;
 use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
 use SalesRender\Plugin\Components\Form\FieldDefinitions\IntegerDefinition;
@@ -18,6 +19,11 @@ class FieldGroupTest extends TestCase
 
     /** @var FieldDefinition[] */
     private $fields;
+
+    /** @var array[][] */
+    private array $dependencies;
+
+    private array $context = [];
 
     /** @var FieldGroup */
     private $group;
@@ -43,14 +49,34 @@ class FieldGroupTest extends TestCase
             ),
         ];
 
-        $this->group = new FieldGroup('Main settings', 'Primary settings for this module', $this->fields);
+        $this->dependencies = [
+            'printCaption' => ['use']
+        ];
+
+        $this->context = ['hello' => 'world'];
+
+        $this->group = new FieldGroup('Main settings', 'Primary settings for this module', $this->fields, $this->dependencies, $this->context);
         $this->groupNull = new FieldGroup('Main settings', null, $this->fields);
     }
 
-    public function testCreateWithNotFieldGroupType()
+    public function testConstructWithNotFieldGroupType()
     {
         $this->expectException(TypeError::class);
         new FieldGroup('title', null, [1, 2]);
+    }
+
+    public function testConstructWithInvalidDependencyKey()
+    {
+        $this->expectException(InvalidDependencyException::class);
+        $this->expectExceptionCode(100);
+        new FieldGroup('Main settings', null, $this->fields, ['abc' => ['def']]);
+    }
+
+    public function testConstructWithInvalidDependencyField()
+    {
+        $this->expectException(InvalidDependencyException::class);
+        $this->expectExceptionCode(200);
+        new FieldGroup('Main settings', null, $this->fields, ['use' => ['def']]);
     }
 
     public function testGetTitle()
@@ -61,10 +87,6 @@ class FieldGroupTest extends TestCase
     public function testGetDescription()
     {
         $this->assertEquals('Primary settings for this module', $this->group->getDescription());
-    }
-
-    public function testGetNullDescription()
-    {
         $this->assertNull($this->groupNull->getDescription());
     }
 
@@ -72,6 +94,29 @@ class FieldGroupTest extends TestCase
     {
         $this->assertEquals($this->fields, $this->group->getFields());
     }
+
+    public function testGetDependencies()
+    {
+        $this->assertEquals($this->dependencies, $this->group->getDependencies());
+        $this->assertEquals([], $this->groupNull->getDependencies());
+    }
+
+    public function testGetContext()
+    {
+        $this->assertSame($this->context, $this->group->getContext());
+        $this->assertSame([], $this->groupNull->getContext());
+    }
+
+    public function testSetContext()
+    {
+        $context = ['new' => 'context'];
+        $this->group->setContext($context);
+        $this->groupNull->setContext($context);
+
+        $this->assertSame($context, $this->group->getContext());
+        $this->assertSame($context, $this->groupNull->getContext());
+    }
+
 
     public function testJsonSerialize()
     {

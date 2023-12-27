@@ -52,6 +52,7 @@ class ListOfEnumDefinitionTest extends FieldDefinitionTestCase
                 'description' => 'My description',
                 'definition' => $this->getDefinitionString(),
                 'default' => 'My default value',
+                'context' => 'My context value',
                 'limit' => [
                     'min' => 1,
                     'max' => 10
@@ -118,7 +119,8 @@ class ListOfEnumDefinitionTest extends FieldDefinitionTestCase
             $validator,
             $this->values,
             $this->limit,
-            'My default value'
+            'My default value',
+            'My context value'
         );
 
         $this->definitionNull = new ListOfEnumDefinition(

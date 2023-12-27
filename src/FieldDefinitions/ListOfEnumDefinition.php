@@ -24,10 +24,11 @@ class ListOfEnumDefinition extends FieldDefinition
         callable $validator,
         ValuesListInterface $valuesList,
         ?Limit $limit,
-        $default = null
+        $default = null,
+        $context = null
     )
     {
-        parent::__construct($title, $description, $validator, $default);
+        parent::__construct($title, $description, $validator, $default, $context);
         $this->values = $valuesList;
         $this->limit = $limit;
     }
@@ -50,14 +51,10 @@ class ListOfEnumDefinition extends FieldDefinition
 
     public function jsonSerialize()
     {
-        return [
-            'title' => $this->getTitle(),
-            'description' => $this->getDescription(),
-            'definition' => $this->getDefinition(),
-            'default' => $this->getDefault(),
+        return array_merge(parent::jsonSerialize(), [
             'limit' => $this->getLimit(),
             'values' => $this->getValues()
-        ];
+        ]);
     }
 
 }

@@ -1,15 +1,15 @@
 <?php
 /**
- * Created for plugin-component-form
- * Date: 04.02.2020
- * @author Timur Kasumov (XAKEPEHOK)
+ * Created for plugin-form.
+ * Datetime: 29.01.2024 14:43
+ * @author Timur Kasumov aka XAKEPEHOK
  */
 
 namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
 use SalesRender\Plugin\Components\Form\FieldDefinitionTestCase;
 
-class StringDefinitionTest extends FieldDefinitionTestCase
+class MultilineStringDefinitionTest extends FieldDefinitionTestCase
 {
 
     public function testJsonSerialize()
@@ -21,7 +21,7 @@ class StringDefinitionTest extends FieldDefinitionTestCase
                 'definition' => $this->getDefinitionString(),
                 'default' => 'My default value',
                 'context' => 'My context value',
-                'multiline' => false,
+                'multiline' => true,
             ]),
             json_encode($this->definition)
         );
@@ -29,7 +29,7 @@ class StringDefinitionTest extends FieldDefinitionTestCase
 
     protected function getClass(): string
     {
-        return StringDefinition::class;
+        return MultilineStringDefinition::class;
     }
 
     protected function getDefinitionString(): string

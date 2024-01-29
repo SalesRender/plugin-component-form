@@ -1,25 +1,20 @@
 <?php
 /**
  * Created for plugin-form.
- * Datetime: 02.07.2018 15:37
+ * Datetime: 29.01.2024 14:43
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
 namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 
 
-class StringDefinition extends FieldDefinition
+class MultilineStringDefinition extends StringDefinition
 {
-
-    public function getDefinition(): string
-    {
-        return 'string';
-    }
 
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [
-            'multiline' => false,
+            'multiline' => true,
         ]);
     }
 }

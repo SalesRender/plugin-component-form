@@ -15,4 +15,11 @@ class MarkdownDefinition extends StringDefinition
     {
         return 'markdown';
     }
+
+    public function jsonSerialize()
+    {
+        $data = parent::jsonSerialize();
+        unset($data['multiline']);
+        return $data;
+    }
 }

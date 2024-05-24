@@ -11,6 +11,7 @@ namespace SalesRender\Plugin\Components\Form;
 use JsonSerializable;
 use SalesRender\Plugin\Components\Form\Exceptions\InvalidDependencyException;
 use SalesRender\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
+use SalesRender\Plugin\Components\Form\MarkdownPreview\MarkdownPreviewInterface;
 use SalesRender\Plugin\Components\Form\TableView\TablePreviewInterface;
 use TypeError;
 
@@ -33,7 +34,7 @@ class FieldGroup implements JsonSerializable
      * FieldsGroup constructor.
      * @param string $title
      * @param string|null $description
-     * @param FieldDefinition[]|TablePreviewInterface[] $fields
+     * @param FieldDefinition[]|TablePreviewInterface[]|MarkdownPreviewInterface[] $fields
      * @param array $dependencies
      * @param array $context
      * @throws InvalidDependencyException

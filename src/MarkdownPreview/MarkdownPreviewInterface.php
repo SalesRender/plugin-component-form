@@ -5,6 +5,6 @@ namespace SalesRender\Plugin\Components\Form\MarkdownPreview;
 interface MarkdownPreviewInterface
 {
 
-    public function render(array $dependencies, array $context): array;
+    public function render(array $dependencies, array $context): string;
 
 }

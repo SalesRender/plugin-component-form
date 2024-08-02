@@ -16,6 +16,7 @@ class StringDefinition extends FieldDefinition
         return 'string';
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [

@@ -26,6 +26,7 @@ class StaticValues implements ValuesListInterface
         return $this->values;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->get();

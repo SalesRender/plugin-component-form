@@ -49,6 +49,7 @@ class ListOfEnumDefinition extends FieldDefinition
         return 'listOfEnum';
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [

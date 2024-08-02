@@ -16,6 +16,7 @@ class MarkdownDefinition extends StringDefinition
         return 'markdown';
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = parent::jsonSerialize();

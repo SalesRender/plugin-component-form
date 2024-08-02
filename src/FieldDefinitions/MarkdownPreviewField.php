@@ -23,6 +23,7 @@ class MarkdownPreviewField extends FieldDefinition
         return 'markdownPreview';
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [

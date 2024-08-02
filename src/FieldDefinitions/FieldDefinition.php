@@ -84,6 +84,7 @@ abstract class FieldDefinition implements JsonSerializable
 
     abstract public function getDefinition(): string;
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [

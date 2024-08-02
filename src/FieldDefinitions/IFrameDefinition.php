@@ -29,6 +29,7 @@ class IFrameDefinition extends FieldDefinition
         return $this->iframe;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [

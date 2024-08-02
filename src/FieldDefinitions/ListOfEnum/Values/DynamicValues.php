@@ -23,6 +23,7 @@ class DynamicValues implements ValuesListInterface
         return $this->name;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->get();

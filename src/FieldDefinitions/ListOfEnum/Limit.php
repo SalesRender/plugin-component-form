@@ -33,6 +33,7 @@ class Limit implements JsonSerializable
         return $this->max;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         if (is_null($this->getMin()) && is_null($this->getMax())) {

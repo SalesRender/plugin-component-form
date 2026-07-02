@@ -53,7 +53,7 @@ class IFrameDefinitionTest extends FieldDefinitionTestCase
 
     public function testGetIframe()
     {
-        $this->assertSame($this->iframe, $this->definition->getIframe());
+        $this->assertSame($this->iframe, $this->definition->iframe);
     }
 
     public function testJsonSerialize()

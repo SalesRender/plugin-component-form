@@ -26,13 +26,12 @@ class StaticValues implements ValuesListInterface
         return $this->values;
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->get();
     }
 
-    private function guardArray(array $array)
+    private function guardArray(array $array): void
     {
         foreach ($array as $values) {
             if (!is_array($values)) {

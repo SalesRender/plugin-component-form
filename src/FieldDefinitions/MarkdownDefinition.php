@@ -16,8 +16,7 @@ class MarkdownDefinition extends StringDefinition
         return 'markdown';
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = parent::jsonSerialize();
         unset($data['multiline']);

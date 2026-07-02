@@ -14,9 +14,9 @@ use SalesRender\Plugin\Components\Form\FieldDefinitions\ListOfEnum\Values\Values
 class ListOfEnumDefinition extends FieldDefinition
 {
 
-    private ValuesListInterface $values;
+    public ValuesListInterface $values;
 
-    private ?Limit $limit;
+    public ?Limit $limit;
 
     public function __construct(
         string $title,
@@ -33,28 +33,17 @@ class ListOfEnumDefinition extends FieldDefinition
         $this->limit = $limit;
     }
 
-    public function getLimit(): ?Limit
-    {
-        return $this->limit;
-    }
-
-    public function getValues(): ValuesListInterface
-    {
-        return $this->values;
-    }
-
 
     public function getDefinition(): string
     {
         return 'listOfEnum';
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge(parent::jsonSerialize(), [
-            'limit' => $this->getLimit(),
-            'values' => $this->getValues()
+            'limit' => $this->limit,
+            'values' => $this->values
         ]);
     }
 

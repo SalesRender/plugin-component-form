@@ -28,17 +28,17 @@ abstract class FieldDefinitionTestCase extends TestCase
 
     public function testGetTitle()
     {
-        $this->assertEquals('My field', $this->definition->getTitle());
+        $this->assertEquals('My field', $this->definition->title);
     }
 
     public function testGetDescription()
     {
-        $this->assertEquals('My description', $this->definition->getDescription());
+        $this->assertEquals('My description', $this->definition->description);
     }
 
     public function testGetNullDescription()
     {
-        $this->assertNull($this->definitionNull->getDescription());
+        $this->assertNull($this->definitionNull->description);
     }
 
     public function testValidate()
@@ -61,22 +61,22 @@ abstract class FieldDefinitionTestCase extends TestCase
 
     public function testGetDefault()
     {
-        $this->assertEquals('My default value', $this->definition->getDefault());
+        $this->assertEquals('My default value', $this->definition->default);
     }
 
     public function testGetNullDefault()
     {
-        $this->assertNull($this->definitionNull->getDefault());
+        $this->assertNull($this->definitionNull->default);
     }
 
     public function testGetContext()
     {
-        $this->assertEquals('My context value', $this->definition->getContext());
+        $this->assertEquals('My context value', $this->definition->context);
     }
 
     public function testGetNullContext()
     {
-        $this->assertNull($this->definitionNull->getContext());
+        $this->assertNull($this->definitionNull->context);
     }
 
     public function testGetDefinition()

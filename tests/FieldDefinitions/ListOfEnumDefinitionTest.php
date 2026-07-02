@@ -31,17 +31,17 @@ class ListOfEnumDefinitionTest extends FieldDefinitionTestCase
 
     public function testGetLimit()
     {
-        $this->assertSame($this->limit, $this->definition->getLimit());
+        $this->assertSame($this->limit, $this->definition->limit);
     }
 
     public function testGetNullLimit()
     {
-        $this->assertNull($this->definitionNull->getLimit());
+        $this->assertNull($this->definitionNull->limit);
     }
 
     public function testGetValuesList()
     {
-        $this->assertSame($this->values, $this->definition->getValues());
+        $this->assertSame($this->values, $this->definition->values);
     }
 
     public function testJsonSerialize()

@@ -97,8 +97,7 @@ class FieldGroup implements JsonSerializable
         $this->context = $context;
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'title' => $this->getTitle(),

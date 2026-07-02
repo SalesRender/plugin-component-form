@@ -77,7 +77,7 @@ class Form implements JsonSerializable
         $data = [];
         foreach ($this->getGroups() as $groupName => $group) {
             foreach ($group->getFields() as $fieldName => $field) {
-                $data[$groupName][$fieldName] = $field->getDefault();
+                $data[$groupName][$fieldName] = $field->default;
             }
         }
         return new FormData($data);
@@ -149,8 +149,7 @@ class Form implements JsonSerializable
         $this->context = $context;
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'title' => $this->getTitle(),

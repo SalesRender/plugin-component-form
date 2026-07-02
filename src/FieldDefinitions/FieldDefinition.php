@@ -15,18 +15,16 @@ use SalesRender\Plugin\Components\Form\FormData;
 abstract class FieldDefinition implements JsonSerializable
 {
 
-    protected string $title;
+    public string $title;
 
-    protected ?string $description;
+    public ?string $description;
 
     /** @var callable */
     protected $validator;
 
-    /** @var mixed|null */
-    protected $default;
+    public mixed $default;
 
-    /** @var mixed|null */
-    protected $context;
+    public mixed $context;
 
     /**
      * ConfigDefinition constructor.
@@ -36,7 +34,7 @@ abstract class FieldDefinition implements JsonSerializable
      * @param null $default
      * @param null $context
      */
-    public function __construct(string $title, ?string $description, callable $validator, $default = null, $context = null)
+    public function __construct(string $title, ?string $description, ValidatorInterface|callable $validator, mixed $default = null, mixed $context = null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -44,16 +42,6 @@ abstract class FieldDefinition implements JsonSerializable
         $this->validator = $validator;
         $this->default = $default;
         $this->context = $context;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
     }
 
     public function validate($value, FormData $data): bool
@@ -66,33 +54,16 @@ abstract class FieldDefinition implements JsonSerializable
         return ($this->validator)($value, $this, $data);
     }
 
-    /**
-     * @return mixed|null
-     */
-    public function getDefault()
-    {
-        return $this->default;
-    }
-
-    /**
-     * @return mixed|null
-     */
-    public function getContext()
-    {
-        return $this->context;
-    }
-
     abstract public function getDefinition(): string;
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return [
-            'title' => $this->getTitle(),
-            'description' => $this->getDescription(),
+            'title' => $this->title,
+            'description' => $this->description,
             'definition' => $this->getDefinition(),
-            'default' => $this->getDefault(),
-            'context' => $this->getContext(),
+            'default' => $this->default,
+            'context' => $this->context,
         ];
     }
 

@@ -16,8 +16,7 @@ class StringDefinition extends FieldDefinition
         return 'string';
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return array_merge(parent::jsonSerialize(), [
             'multiline' => false,

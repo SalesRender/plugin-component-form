@@ -11,7 +11,7 @@ namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 class IFrameDefinition extends FieldDefinition
 {
 
-    private string $iframe;
+    public string $iframe;
 
     public function __construct(string $title, ?string $description, callable $validator, string $iframe, $default = null, $context = null)
     {
@@ -24,13 +24,7 @@ class IFrameDefinition extends FieldDefinition
         return 'iframe';
     }
 
-    public function getIframe(): string
-    {
-        return $this->iframe;
-    }
-
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge(parent::jsonSerialize(), [
             'iframe' => $this->iframe,

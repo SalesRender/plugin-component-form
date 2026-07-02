@@ -15,19 +15,19 @@ class LimitTest extends TestCase
     public function testGetMin()
     {
         $limit = new Limit(10, 20);
-        $this->assertEquals(10, $limit->getMin());
+        $this->assertEquals(10, $limit->min);
 
         $limit = new Limit(null, 20);
-        $this->assertNull($limit->getMin());
+        $this->assertNull($limit->min);
     }
 
     public function testGetMax()
     {
         $limit = new Limit(10, 20);
-        $this->assertEquals(20, $limit->getMax());
+        $this->assertEquals(20, $limit->max);
 
         $limit = new Limit(10, null);
-        $this->assertNull($limit->getMax());
+        $this->assertNull($limit->max);
     }
 
     public function testJsonSerialize()

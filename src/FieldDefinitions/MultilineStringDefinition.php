@@ -11,8 +11,7 @@ namespace SalesRender\Plugin\Components\Form\FieldDefinitions;
 class MultilineStringDefinition extends StringDefinition
 {
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge(parent::jsonSerialize(), [
             'multiline' => true,
